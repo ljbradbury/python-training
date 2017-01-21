@@ -1,2 +1,2 @@
 # python-training
-python training repo
+This is my python training repo and I'm also testing GitHub
