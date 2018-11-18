@@ -34,6 +34,29 @@ my_new_car.read_odometer()
 my_new_car.increment_odometer(100)
 my_new_car.read_odometer()
 
+
+class Battery():
+    ''' A simple attempt to model a battery for an electric car '''
+    def __init__(self, battery_size=70):
+        ''' Initialize the batteries attributes '''
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        ''' Print a statement describing the battery size '''
+        print("This car has a " + str(self.battery_size) + " - kwh battery")
+
+    def get_range(self):
+        ''' Print a statement about the range the battery provides '''
+        if self.battery_size == 70:
+            range = 240
+
+        elif self.battery_size == 85:
+            range = 270
+
+        message = "This car can go appproximately " + str(range)
+        message += " miles on a full charge"
+        print(message)
+
 '''
 
 # Inheritance 
@@ -57,11 +80,18 @@ class ElectricCar(Car):
 
         # Create an attribute specific to an electric car
         self.battery_size = 70
+        self.battery = Battery()
 
     def descriptive_battery(self):
         ''' Print statement for the battery size'''
         print("This car has a " + str(self.battery_size) + "-kwh battery.")
 
+'''
+Method's with the same name iin the parent class and the child class can have the same name
+If they do, then the child class will take precedence
+'''
+
 myTesla = ElectricCar("Tesla", "model S", "2016")
 print("\n" + myTesla.descriptive_name())
-myTesla.descriptive_battery()
+myTesla.battery.describe_battery()
+myTesla.battery.get_range()
