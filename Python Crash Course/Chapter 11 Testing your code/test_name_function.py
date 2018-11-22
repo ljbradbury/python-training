@@ -11,7 +11,11 @@ class NamesTestCase(unittest.TestCase):
     def test_first_last_name(self):
         ''' Do names like Janis Joplin work '''
         formatted_name = get_formatted_name("Janis", "Joplin")
-        self.assertEqual(formatted_name, "Janis Joplin1")
+        self.assertEqual(formatted_name, "Janis Joplin")
+
+    def test_first_last_middle_name(self):
+        formatted_name = get_formatted_name("wolfgang", "wimmer", "bob")
+        self.assertEqual(formatted_name, "Wolfgang Bob Wimmer")
 
 if __name__ == "__main__":
 
